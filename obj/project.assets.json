@@ -5033,19 +5033,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
+    "C:\\Users\\gagan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Work\\Personal Prj\\DotnetCorePrj\\MyProject\\Consistrack\\Consistrack.csproj",
+      "projectUniqueName": "E:\\MyProject\\Consistrack\\Consistrack.csproj",
       "projectName": "Consistrack",
-      "projectPath": "E:\\Work\\Personal Prj\\DotnetCorePrj\\MyProject\\Consistrack\\Consistrack.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\Work\\Personal Prj\\DotnetCorePrj\\MyProject\\Consistrack\\obj\\",
+      "projectPath": "E:\\MyProject\\Consistrack\\Consistrack.csproj",
+      "packagesPath": "C:\\Users\\gagan\\.nuget\\packages\\",
+      "outputPath": "E:\\MyProject\\Consistrack\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\gagan\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -5104,7 +5104,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
