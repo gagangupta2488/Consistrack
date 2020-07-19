@@ -13,24 +13,24 @@ namespace Consistrack.Data
         {
             _Context=Context;
         }
-        public void CreateCommand(SimMaster sim)
+        public async void  CreateCommand(SimMaster sim)
         {
              if(sim== null)
             {
                 throw new ArgumentNullException(nameof(sim));
             }
-        _Context.SimMasters.Add(sim);
+       await _Context.SimMasters.Add(sim);
 
         }
 
-        public IEnumerable<SimMaster> GetAllSims()
+        public async IEnumerable<SimMaster> GetAllSims()
         {
-             return _Context.SimMasters.ToList();
+             return await _Context.SimMasters.ToList();
         }
 
-        public SimMaster GetSimByATSN(string atsn)
+        public async SimMaster GetSimByATSN(string atsn)
         {
-             return _Context.SimMasters.FirstOrDefault(p=> p.ATSN==atsn);
+             return await _Context.SimMasters.FirstOrDefault(p=> p.ATSN==atsn);
         }
 
         public bool SaveChanges()
