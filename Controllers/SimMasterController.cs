@@ -4,7 +4,7 @@ using Consistrack.Data;
 using Consistrack.Dtos;
 using Consistrack.Models;
 using Microsoft.AspNetCore.Mvc;
-
+using Consistrack.Interface;
 namespace Consistrack.Controllers
 {
 [Route("api/SimMaster")]
