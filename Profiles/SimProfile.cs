@@ -9,6 +9,8 @@ namespace Commander.profiles
 public SimProfiles()
 {
     CreateMap<SimUpdateDto,SimMaster>();
+    CreateMap<GPSUpdateDto,GPSMaster>();
+
 }
     }
 }
