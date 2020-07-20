@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Consistrack.Data;
+using Consistrack.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,7 @@ namespace Consistrack
             (Configuration.GetConnectionString("ConsistrckConnection")));
             services.AddControllers();
             services.AddScoped<ISimMasterRepo,SqlSimMasterRepo>();
+               services.AddScoped<IGPSMaster,SqlGPSMasterRepo>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         }
