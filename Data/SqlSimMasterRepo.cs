@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Consistrack.Models;
-
+using Consistrack.Interface;
 namespace Consistrack.Data
 {
     public class SqlSimMasterRepo : ISimMasterRepo

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Consistrack.Models;
 
-namespace Consistrack.Data
+namespace Consistrack.Interface
 {
     
     public interface ISimMasterRepo{
