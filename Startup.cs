@@ -33,7 +33,7 @@ namespace Consistrack
             (Configuration.GetConnectionString("ConsistrckConnection")));
             services.AddControllers();
             services.AddScoped<ISimMasterRepo,SqlSimMasterRepo>();
-               services.AddScoped<IGPSMaster,SqlGPSMasterRepo>();
+            services.AddScoped<IGPSMasterRepo,SqlGPSMasterRepo>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         }
