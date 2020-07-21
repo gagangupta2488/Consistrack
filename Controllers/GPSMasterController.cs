@@ -46,7 +46,7 @@ return NotFound();
      
      _repository.CreateCommand(gps);
      _repository.SaveChanges();
-     return CreatedAtRoute(nameof(GetGPSByIMEI), new {imei=gps.IMEI},gps);
+     return CreatedAtRoute(nameof(GetGPSByIMEI), new {imei=gps.IMEINo},gps);
      
  }
  [HttpPut("{IMEI}")]
