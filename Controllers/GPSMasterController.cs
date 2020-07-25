@@ -64,6 +64,10 @@ _repository.UpdateCommand(gpsModelRepo);
 _repository.SaveChanges();
 return NoContent();
 }
+
+[Route("ExportExcel")]
+[HttpGet]
+[ActionName("ExportExcel")]
 public IActionResult ExportExcel()
 {
     using (var workbook = new XLWorkbook())
