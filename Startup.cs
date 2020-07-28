@@ -46,6 +46,8 @@ namespace Consistrack
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(builder => builder.WithOrigins("http://localhost:3982"));
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

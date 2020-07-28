@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Work\\Personal Prj\\GitHub\\Consistrack\\Consistrack.csproj": {}
+    "E:\\Work\\Personal Prj\\GitHubConsisTrack\\Consistrack.csproj": {}
   },
   "projects": {
-    "E:\\Work\\Personal Prj\\GitHub\\Consistrack\\Consistrack.csproj": {
+    "E:\\Work\\Personal Prj\\GitHubConsisTrack\\Consistrack.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Work\\Personal Prj\\GitHub\\Consistrack\\Consistrack.csproj",
+        "projectUniqueName": "E:\\Work\\Personal Prj\\GitHubConsisTrack\\Consistrack.csproj",
         "projectName": "Consistrack",
-        "projectPath": "E:\\Work\\Personal Prj\\GitHub\\Consistrack\\Consistrack.csproj",
+        "projectPath": "E:\\Work\\Personal Prj\\GitHubConsisTrack\\Consistrack.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "E:\\Work\\Personal Prj\\GitHub\\Consistrack\\obj\\",
+        "outputPath": "E:\\Work\\Personal Prj\\GitHubConsisTrack\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -39,6 +39,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[*, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
