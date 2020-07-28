@@ -62,6 +62,13 @@ _repository.UpdateCommand(SimModelRepo);
 _repository.SaveChanges();
 return NoContent();
 }
+[Route("GetATSNUId")]
+[HttpGet]
+[ActionName("GetATSNUId")]
+public ActionResult <string> GetATSNUId()
+{
+    return _repository.GetATSNUId();
+}
 }
 }
 

@@ -11,6 +11,7 @@ namespace Consistrack.Interface
     SimMaster GetSimByATSN(string atsn);
      void CreateCommand(SimMaster sim);
     void UpdateCommand(SimMaster sim);
+    string GetATSNUId();
 
 
     }
