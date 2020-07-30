@@ -19,8 +19,10 @@ namespace Consistrack
 {
     public class Startup
     {
+        private const string AllowAllOriginsPolicy = "AllowAllOriginsPolicy";
         public Startup(IConfiguration configuration)
         {
+            
             Configuration = configuration;
         }
 
@@ -29,13 +31,22 @@ namespace Consistrack
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+                 services.AddCors(options =>
+    {
+        options.AddPolicy(AllowAllOriginsPolicy, // I introduced a string constant just as a label "AllowAllOriginsPolicy"
+        builder =>
+        {
+            builder.AllowAnyOrigin();
+            builder.AllowAnyHeader();
+        });
+    });
             services.AddDbContext<ConsistrackContext>(opt => opt.UseSqlServer
             (Configuration.GetConnectionString("ConsistrckConnection")));
             services.AddControllers();
             services.AddScoped<ISimMasterRepo,SqlSimMasterRepo>();
             services.AddScoped<IGPSMasterRepo,SqlGPSMasterRepo>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,11 +57,14 @@ namespace Consistrack
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(builder => builder.WithOrigins("http://localhost:3982"));
+           
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
+            app.UseRouting();  // first
+           // Shows UseCors with CorsPolicyBuilder.
+   // global cors policy
+            app.UseCors(AllowAllOriginsPolicy);
 
             app.UseAuthorization();
 
@@ -58,6 +72,7 @@ namespace Consistrack
             {
                 endpoints.MapControllers();
             });
+             
         }
     }
 }
