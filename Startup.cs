@@ -57,13 +57,11 @@ namespace Consistrack
                 app.UseDeveloperExceptionPage();
             }
 
-           
-
             app.UseHttpsRedirection();
 
             app.UseRouting();  // first
-           // Shows UseCors with CorsPolicyBuilder.
-   // global cors policy
+            // Shows UseCors with CorsPolicyBuilder.
+            // global cors policy
             app.UseCors(AllowAllOriginsPolicy);
 
             app.UseAuthorization();
