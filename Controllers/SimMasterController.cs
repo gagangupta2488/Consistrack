@@ -30,10 +30,10 @@ public class simMasterControl:ControllerBase
 
 }
 //Get api/commands/{Id}
-[HttpGet("{ATSN}",Name="GetSimByATSN")]
-public ActionResult <SimMaster> GetSimByATSN(string atsn)
+[HttpGet("{Id}",Name="GetSimById")]
+public ActionResult <SimMaster> GetSimById(int id)
 {
-var SimItem=_repository.GetSimByATSN(atsn);
+var SimItem=_repository.GetSimById(id);
 if(SimItem!= null)
 {
 return Ok (SimItem);
@@ -46,13 +46,13 @@ return NotFound();
      
      _repository.CreateCommand(sim);
      _repository.SaveChanges();
-     return CreatedAtRoute(nameof(GetSimByATSN), new {atsn=sim.ATSN},sim);
+     return CreatedAtRoute(nameof(GetSimById), new {id=sim.Id},sim);
      
  }
- [HttpPut("{ATSN}")]
-public ActionResult UpdateCommand(string atsn ,SimUpdateDto simupdatedto)
+ [HttpPut("{ID}")]
+public ActionResult UpdateCommand(int id ,SimUpdateDto simupdatedto)
 {
-var SimModelRepo=_repository.GetSimByATSN(atsn);
+var SimModelRepo=_repository.GetSimById(id);
 if(SimModelRepo==null)
 {
     return NotFound();

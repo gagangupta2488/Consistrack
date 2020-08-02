@@ -120,6 +120,13 @@ public IActionResult ExportExcel()
         }
     }
 }
+[Route("GetGPSUId")]
+[HttpGet]
+[ActionName("GetGPSUId")]
+public ActionResult <string> GetGpsUId()
+{
+    return _repository.GetGpsUId();
+}
 
 
         }  

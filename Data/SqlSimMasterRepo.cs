@@ -39,9 +39,9 @@ namespace Consistrack.Data
             return uatsn.ATSN;
         }
 
-        public  SimMaster GetSimByATSN(string atsn)
+        public  SimMaster GetSimById(int id)
         {
-             return  _Context.SimMasters.FirstOrDefault(p=> p.ATSN==atsn);
+             return  _Context.SimMasters.FirstOrDefault(p=> p.Id==id);
         }
 
         public bool SaveChanges()

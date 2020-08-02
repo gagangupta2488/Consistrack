@@ -34,6 +34,15 @@ namespace Consistrack.Data
              return  _Context.GPSMasters.FirstOrDefault(p=> p.IMEINo==imei);
         }
 
+        public string GetGpsUId()
+        {
+var ugpsid=_Context.GPSMasters.OrderBy(s => s.GPSId).LastOrDefault();
+            if(ugpsid.GPSId==null)
+            ugpsid.GPSId="GPS1";
+            else
+            ugpsid.GPSId="GPS"+(Convert.ToInt32(ugpsid.GPSId.Substring(3,(ugpsid.GPSId.Length-3)))+1).ToString();
+            return ugpsid.GPSId;        }
+
         public bool SaveChanges()
         {
             return  (_Context.SaveChanges() >=0);

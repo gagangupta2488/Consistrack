@@ -5,11 +5,11 @@ namespace Consistrack.Interface
 {
     
     public interface ISimMasterRepo{
-      bool SaveChanges();
+    bool SaveChanges();
 
     IEnumerable <SimMaster> GetAllSims();
-    SimMaster GetSimByATSN(string atsn);
-     void CreateCommand(SimMaster sim);
+    SimMaster GetSimById(int id);
+   void CreateCommand(SimMaster sim);
     void UpdateCommand(SimMaster sim);
     string GetATSNUId();
 

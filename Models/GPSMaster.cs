@@ -7,6 +7,7 @@ namespace Consistrack.Models
     {
          [Key]
         public int Id { get; set; }
+        public string GPSId { get; set; }
         public string Vender { get; set; }
         public DateTime? DOP { get; set; }
         public string DeviceModel { get; set; }

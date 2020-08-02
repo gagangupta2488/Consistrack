@@ -11,6 +11,7 @@ namespace Consistrack.Interface
     GPSMaster GetGPSByIMEI(string imei);
      void CreateCommand(GPSMaster gps);
     void UpdateCommand(GPSMaster gps);
+    string GetGpsUId();
 
 
     }
