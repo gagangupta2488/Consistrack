@@ -38,6 +38,7 @@ namespace Consistrack
         {
             builder.AllowAnyOrigin();
             builder.AllowAnyHeader();
+            builder.AllowAnyMethod();
         });
     });
             services.AddDbContext<ConsistrackContext>(opt => opt.UseSqlServer
