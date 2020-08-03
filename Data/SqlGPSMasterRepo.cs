@@ -25,6 +25,17 @@ namespace Consistrack.Data
 
         }
 
+        public void DeleteCommand(int id)
+        {
+         var gpsModelRepo=_Context.GPSMasters.FirstOrDefault(p=> p.Id==id);
+         if(gpsModelRepo!=null)
+    {
+        gpsModelRepo.IsActive=false;
+        
+    }
+         }
+
+
         public IEnumerable<GPSMaster> GetAllGPSs()
         {
              return  _Context.GPSMasters.ToList();
@@ -36,9 +47,10 @@ namespace Consistrack.Data
         }
 
         public string GetGpsUId()
-        {
-var ugpsid=_Context.GPSMasters.OrderBy(s => s.GPSId).LastOrDefault();
-            if(ugpsid.GPSId==null)
+        { 
+            GPSMaster ugpsid=new GPSMaster();
+ ugpsid=_Context.GPSMasters.OrderBy(s => s.GPSId).LastOrDefault();
+            if(ugpsid==null)
             ugpsid.GPSId="GPS1";
             else
             ugpsid.GPSId="GPS"+(Convert.ToInt32(ugpsid.GPSId.Substring(3,(ugpsid.GPSId.Length-3)))+1).ToString();
