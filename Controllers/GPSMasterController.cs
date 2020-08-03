@@ -42,6 +42,9 @@ return Ok (GPSItem);
 }
 return NotFound();
 }
+    
+    [Route("CreateCommand")]
+    [ActionName("CreateCommand")]
     [HttpPost]
  public ActionResult CreateCommand(GPSMaster gps)
  {
