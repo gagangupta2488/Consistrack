@@ -30,9 +30,9 @@ namespace Consistrack.Data
              return  _Context.GPSMasters.ToList();
         }
 
-        public  GPSMaster GetGPSByIMEI(string imei)
+        public  GPSMaster GetGPSById(int id)
         {
-             return  _Context.GPSMasters.FirstOrDefault(p=> p.IMEINo==imei);
+             return  _Context.GPSMasters.FirstOrDefault(p=> p.Id==id);
         }
 
         public string GetGpsUId()

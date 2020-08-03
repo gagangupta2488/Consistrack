@@ -32,10 +32,10 @@ public class GPSMasterControl:ControllerBase
 
 }
 //Get api/commands/{Id}
-[HttpGet("{IMEI}",Name="GetGPSByIMEI")]
-public ActionResult <GPSMaster> GetGPSByIMEI(string imei)
+[HttpGet("{Id}",Name="GetGPSById")]
+public ActionResult <GPSMaster> GetGPSById(int id)
 {
-var GPSItem=_repository.GetGPSByIMEI(imei);
+var GPSItem=_repository.GetGPSById(id);
 if(GPSItem!= null)
 {
 return Ok (GPSItem);
@@ -51,13 +51,13 @@ return NotFound();
      
      _repository.CreateCommand(gps);
      _repository.SaveChanges();
-     return CreatedAtRoute(nameof(GetGPSByIMEI), new {imei=gps.IMEINo},gps);
+     return CreatedAtRoute(nameof(GetGPSById), new {id=gps.Id},gps);
      
  }
  [HttpPut("{IMEI}")]
-public ActionResult UpdateCommand(string imei ,GPSUpdateDto gpsupdatedto)
+public ActionResult UpdateCommand(int id ,GPSUpdateDto gpsupdatedto)
 {
-var gpsModelRepo=_repository.GetGPSByIMEI(imei);
+var gpsModelRepo=_repository.GetGPSById(id);
 if(gpsModelRepo==null)
 {
     return NotFound();

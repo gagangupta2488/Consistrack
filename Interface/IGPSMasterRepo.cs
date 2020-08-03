@@ -8,7 +8,7 @@ namespace Consistrack.Interface
       bool SaveChanges();
 
     IEnumerable <GPSMaster> GetAllGPSs();
-    GPSMaster GetGPSByIMEI(string imei);
+    GPSMaster GetGPSById(int id);
      void CreateCommand(GPSMaster gps);
     void UpdateCommand(GPSMaster gps);
     string GetGpsUId();
