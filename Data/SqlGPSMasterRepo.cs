@@ -48,13 +48,13 @@ namespace Consistrack.Data
 
         public string GetGpsUId()
         { 
-            GPSMaster ugpsid=new GPSMaster();
- ugpsid=_Context.GPSMasters.OrderBy(s => s.GPSId).LastOrDefault();
+            string id;
+var ugpsid=_Context.GPSMasters.OrderBy(s => s.GPSId).LastOrDefault();
             if(ugpsid==null)
-            ugpsid.GPSId="GPS1";
+            id="GPS1";
             else
-            ugpsid.GPSId="GPS"+(Convert.ToInt32(ugpsid.GPSId.Substring(3,(ugpsid.GPSId.Length-3)))+1).ToString();
-            return ugpsid.GPSId;        }
+            id="GPS"+(Convert.ToInt32(ugpsid.GPSId.Substring(3,(ugpsid.GPSId.Length-3)))+1).ToString();
+            return id;        }
 
         public bool SaveChanges()
         {
