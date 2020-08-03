@@ -54,7 +54,7 @@ return NotFound();
      return CreatedAtRoute(nameof(GetGPSById), new {id=gps.Id},gps);
      
  }
- [HttpPut("{IMEI}")]
+ [HttpPut("{Id}")]
 public ActionResult UpdateCommand(int id ,GPSUpdateDto gpsupdatedto)
 {
 var gpsModelRepo=_repository.GetGPSById(id);
