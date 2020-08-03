@@ -20,6 +20,7 @@ namespace Consistrack.Data
             {
                 throw new ArgumentNullException(nameof(gps));
             }
+           gps.GPSId=GetGpsUId();
         _Context.GPSMasters.Add(gps);
 
         }
