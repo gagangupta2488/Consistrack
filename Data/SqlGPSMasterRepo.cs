@@ -36,8 +36,13 @@ namespace Consistrack.Data
          }
 
 
-        public IEnumerable<GPSMaster> GetAllGPSs()
+        public IEnumerable<GPSMaster> GetAllGPSs(int flag)
         {
+            if(flag==0)
+             return  _Context.GPSMasters.Where(p=> p.IsActive==false).ToList();
+             else if(flag==1)
+             return  _Context.GPSMasters.Where(p=> p.IsActive==true).ToList();
+             else
              return  _Context.GPSMasters.ToList();
         }
 

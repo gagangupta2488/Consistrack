@@ -7,7 +7,7 @@ namespace Consistrack.Interface
     public interface IGPSMasterRepo{
       bool SaveChanges();
 
-    IEnumerable <GPSMaster> GetAllGPSs();
+    IEnumerable <GPSMaster> GetAllGPSs(int flag);
     GPSMaster GetGPSById(int id);
      void CreateCommand(GPSMaster gps);
     void UpdateCommand(GPSMaster gps);
