@@ -8,12 +8,13 @@ namespace Consistrack.Models
          [Key]
         public int Id { get; set; }
         public string GPSId { get; set; }
+        [Required(ErrorMessage = "Please Enter Vendor Name"), MaxLength(255)]
         public string Vender { get; set; }
         public DateTime? DOP { get; set; }
         public string DeviceModel { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please Enter AT-Model Name")]
         public string ATModel { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please Enter IMEI No")]
         public string IMEINo { get; set; }
         public string Status { get; set; }
         public string Remark { get; set; }
