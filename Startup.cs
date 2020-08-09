@@ -35,27 +35,7 @@ namespace Consistrack
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-               var appSettingsection=Configuration.GetSection("AppSetting");
-                services.Configure<AppSettings>(appSettingsection);
-            //JWT Authentication
-            var appSettings=appSettingsection.Get<AppSettings>();
-            var Key=Encoding.ASCII.GetBytes(appSettings.Key);
-               services.AddAuthentication(au =>{
-au.DefaultAuthenticateScheme=JwtBearerDefaults.AuthenticationScheme;
-au.DefaultChallengeScheme=JwtBearerDefaults.AuthenticationScheme;
 
-
-               }).AddJwtBearer(jwt =>{
-jwt.RequireHttpsMetadata=false;
-jwt.SaveToken=true;
-jwt.TokenValidationParameters=new TokenValidationParameters{
-    ValidateIssuerSigningKey=true,
-    IssuerSigningKey=new SymmetricSecurityKey(Key),
-    ValidateIssuer=false,
-    ValidateAudience=false
-
-};
- });
                
                  services.AddCors(options =>
     {
