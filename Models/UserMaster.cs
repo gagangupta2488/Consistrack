@@ -21,6 +21,7 @@ namespace Consistrack.Models
         public string Gender { get; set; }
         public string EmailID { get; set; }
         public string Designation { get; set; }
+        public string Token { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreatedDT { get; set; }
         public string UpdatedBy { get; set; }
