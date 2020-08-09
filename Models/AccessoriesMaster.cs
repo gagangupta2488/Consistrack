@@ -14,7 +14,6 @@ namespace Consistrack.Models
 
          [Required(ErrorMessage="Pleae Enter Quantity")]
         public string Quantity { get; set; }
-
         public string Remark { get; set; }
         public string CreatedBy { get; set; }
         public DateTime? CreatedDT { get; set; }

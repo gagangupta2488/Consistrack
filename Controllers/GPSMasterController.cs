@@ -48,14 +48,19 @@ return NotFound();
     [HttpPost]
  public ActionResult CreateCommand(GPSMaster gps)
  {
-     
+       if(gps.Id == 0)
+           {
      _repository.CreateCommand(gps);
      _repository.SaveChanges();
      return CreatedAtRoute(nameof(GetGPSById), new {id=gps.Id},gps);
-     
+           }
+           else{
+        return UpdateCommand(gps.Id, gps);
+            
+           }
  }
  [HttpPut("{Id}")]
-public ActionResult UpdateCommand(int id ,GPSUpdateDto gpsupdatedto)
+public ActionResult UpdateCommand(int id ,GPSMaster gpsupdatedto)
 {
 var gpsModelRepo=_repository.GetGPSById(id);
 if(gpsModelRepo==null)
@@ -65,7 +70,7 @@ if(gpsModelRepo==null)
 _mapper.Map(gpsupdatedto,gpsModelRepo);
 _repository.UpdateCommand(gpsModelRepo);
 _repository.SaveChanges();
-return NoContent();
+  return  NoContent();
 }
 [HttpDelete("{Id}")]
 public ActionResult DeleteCommand(int id )

@@ -42,7 +42,7 @@
             },
             "ClosedXML": {
               "target": "Package",
-              "version": "[*, )"
+              "version": "[0.95.3, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

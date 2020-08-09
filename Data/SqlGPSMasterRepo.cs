@@ -20,9 +20,9 @@ namespace Consistrack.Data
             {
                 throw new ArgumentNullException(nameof(gps));
             }
-           gps.GPSId=GetGpsUId();
+    
+         gps.GPSId=GetGpsUId();
         _Context.GPSMasters.Add(gps);
-
         }
 
         public void DeleteCommand(int id)
@@ -36,7 +36,7 @@ namespace Consistrack.Data
          }
 
 
-        public IEnumerable<GPSMaster> GetAllGPSs(int flag)
+        public    IEnumerable<GPSMaster> GetAllGPSs(int flag)
         {
             if(flag==0)
              return  _Context.GPSMasters.Where(p=> p.IsActive==false).ToList();
@@ -54,7 +54,7 @@ namespace Consistrack.Data
         public string GetGpsUId()
         { 
             string id;
-var ugpsid=_Context.GPSMasters.OrderBy(s => s.GPSId).LastOrDefault();
+var ugpsid=_Context.GPSMasters.OrderBy(s => s.Id).LastOrDefault();
             if(ugpsid==null)
             id="GPS1";
             else

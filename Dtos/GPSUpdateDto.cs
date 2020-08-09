@@ -19,6 +19,7 @@ namespace Consistrack.Dtos
         public string CreatedBy { get; set; }
         public DateTime? CreatedDT { get; set; }
         public string UpdatedBy { get; set; }
+      
         public DateTime? UpdatedDT { get; set; }
         public bool IsActive{get;set;}
     
