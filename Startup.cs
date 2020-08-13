@@ -52,6 +52,7 @@ namespace Consistrack
             services.AddControllers();
             services.AddScoped<ISimMasterRepo,SqlSimMasterRepo>();
             services.AddScoped<IGPSMasterRepo,SqlGPSMasterRepo>();
+             services.AddScoped<ISensorMasterRepo,SqlSensorMasterRepo>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
            services.AddScoped<IAuthenticateServiceRepo,AuthenticateServices>();
         }

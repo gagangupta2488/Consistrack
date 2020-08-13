@@ -19,24 +19,43 @@ namespace Consistrack.Data
             {
                 throw new ArgumentNullException(nameof(sim));
             }
+            sim.ATSN=GetATSNUId();
         _Context.SimMasters.Add(sim);
 
         }
 
-        public IEnumerable<SimMaster> GetAllSims()
+        public void DeleteCommand(int id, bool flag)
         {
+            var simModelRepo=_Context.SimMasters.FirstOrDefault(p=> p.Id==id);
+         if(simModelRepo!=null)
+    {
+        if(flag==false)
+        simModelRepo.IsActive=false;
+        else
+       simModelRepo.IsActive=true;
+        
+    }
+        }
+
+        public IEnumerable<SimMaster> GetAllSims(int flag)
+        {
+             if(flag==0)
+             return  _Context.SimMasters.Where(p=> p.IsActive==false).ToList();
+             else if(flag==1)
+             return  _Context.SimMasters.Where(p=> p.IsActive==true).ToList();
+             else
              return  _Context.SimMasters.ToList();
         }
 
         public string GetATSNUId()
         { 
-           // SimMaster s1 = new SimMaster();
-           var uatsn=_Context.SimMasters.OrderBy(s => s.ATSN).LastOrDefault();
-            if(uatsn.ATSN==null)
-            uatsn.ATSN="ATSN1";
+           string id;
+           var uatsn=_Context.SimMasters.OrderBy(s => s.Id).LastOrDefault();
+            if(uatsn==null)
+            id="ATSN1";
             else
-            uatsn.ATSN="ATSN"+(Convert.ToInt32(uatsn.ATSN.Substring(4,(uatsn.ATSN.Length-4)))+1).ToString();
-            return uatsn.ATSN;
+            id="ATSN"+(Convert.ToInt32(uatsn.ATSN.Substring(4,(uatsn.ATSN.Length-4)))+1).ToString();
+            return id;
         }
 
         public  SimMaster GetSimById(int id)

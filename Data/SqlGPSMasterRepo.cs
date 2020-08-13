@@ -25,12 +25,15 @@ namespace Consistrack.Data
         _Context.GPSMasters.Add(gps);
         }
 
-        public void DeleteCommand(int id)
+        public void DeleteCommand(int id,bool flag)
         {
          var gpsModelRepo=_Context.GPSMasters.FirstOrDefault(p=> p.Id==id);
          if(gpsModelRepo!=null)
     {
+        if(flag==false)
         gpsModelRepo.IsActive=false;
+        else
+       gpsModelRepo.IsActive=true;
         
     }
          }

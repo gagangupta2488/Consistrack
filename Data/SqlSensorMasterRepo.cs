@@ -21,19 +21,49 @@ namespace Consistrack.Data
             {
                 throw new ArgumentNullException(nameof(sens));
             }
+             sens.SensorId=GetSensorUId();
         _Context.SensorMasters.Add(sens);
 
         }
-        
-        public IEnumerable<SensorMaster> GetAllSensors()
+
+        public void DeleteCommand(int id, bool flag)
         {
-            
-             return  _Context.SensorMasters.ToList();
+          var sensorModelRepo=_Context.SensorMasters.FirstOrDefault(p=> p.Id==id);
+         if(sensorModelRepo!=null)
+    {
+        if(flag==false)
+        sensorModelRepo.IsActive=false;
+        else
+       sensorModelRepo.IsActive=true;
+        
+    }
         }
 
-        public SensorMaster GetSensorByMAC(string mac)
+        public IEnumerable<SensorMaster> GetAllSensors(int flag)
         {
-            return  _Context.SensorMasters.FirstOrDefault(p=> p.MAC_No==mac);
+            
+             if(flag==0)
+             return  _Context.SensorMasters.Where(p=> p.IsActive==false).ToList();
+             else if(flag==1)
+             return  _Context.SensorMasters.Where(p=> p.IsActive==true).ToList();
+             else
+             return  _Context.SensorMasters.ToList();        }
+
+        public SensorMaster GetSensorById(int id)
+        {
+            return  _Context.SensorMasters.FirstOrDefault(p=> p.Id==id);
+        }
+
+        public string GetSensorUId()
+        {
+            string id;
+           // SimMaster s1 = new SimMaster();
+           var usensorid=_Context.SensorMasters.OrderBy(s => s.Id).LastOrDefault();
+            if(usensorid==null)
+            id="SENS1";
+            else
+            id="SENS"+(Convert.ToInt32(usensorid.SensorId.Substring(4,(usensorid.SensorId.Length-4)))+1).ToString();
+            return id;
         }
 
         public bool SaveChanges()

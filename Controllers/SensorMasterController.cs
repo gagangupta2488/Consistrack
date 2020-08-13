@@ -23,36 +23,43 @@ public class SensorMasterControl:ControllerBase
    
     [HttpGet]
    
-    public ActionResult <IEnumerable<SensorMaster>> GetAllSensors()
+    public ActionResult <IEnumerable<SensorMaster>> GetAllSensors(int flag)
 {
-    var Senseritems=_repository.GetAllSensors();
+    var Senseritems=_repository.GetAllSensors(flag);
     return Ok(Senseritems);
 
 }
 //Get api/commands/{Id}
-[HttpGet("{MAC_No}",Name="GetSensorByMAC")]
-public ActionResult <SimMaster> GetSensorByMAC(string mac)
+[HttpGet("{Id}",Name="GetSensorById")]
+public ActionResult <SimMaster> GetSensorById(int id)
 {
-var Senseritem=_repository.GetSensorByMAC(mac);
-if(Senseritem!= null)
+var Sensoritem=_repository.GetSensorById(id);
+if(Sensoritem!= null)
 {
-return Ok (Senseritem);
+return Ok (Sensoritem);
 }
 return NotFound();
 }
+ [Route("CreateCommand")]
+    [ActionName("CreateCommand")]
     [HttpPost]
  public ActionResult CreateCommand(SensorMaster sens)
  {
-     
+    if(sens.Id == 0)
+           {
      _repository.CreateCommand(sens);
      _repository.SaveChanges();
-     return CreatedAtRoute(nameof(GetSensorByMAC), new {mac=sens.MAC_No},sens);
+     return CreatedAtRoute(nameof(GetSensorById), new {id=sens.Id},sens);
+           }
+           else{
+        return UpdateCommand(sens.Id, sens);
      
  }
- [HttpPut("{MAC_No}")]
-public ActionResult UpdateCommand(string mac ,SensorUpdateDto sensorupdatedto)
+ }
+ [HttpPut("{ID}")]
+public ActionResult UpdateCommand(int id ,SensorMaster sensorupdatedto)
 {
-var SensorModelRepo=_repository.GetSensorByMAC(mac);
+var SensorModelRepo=_repository.GetSensorById(id);
 if(SensorModelRepo==null)
 {
     return NotFound();
@@ -62,6 +69,14 @@ _repository.UpdateCommand(SensorModelRepo);
 _repository.SaveChanges();
 return NoContent();
 }
+[HttpDelete("{Id}/{flag}")]
+public ActionResult DeleteCommand(int id, bool flag )
+{
+_repository.DeleteCommand(id,flag);
+_repository.SaveChanges();
+return NoContent();
+}
+
 }
 }
 

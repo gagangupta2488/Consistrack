@@ -11,7 +11,7 @@ namespace Consistrack.Interface
     GPSMaster GetGPSById(int id);
      void CreateCommand(GPSMaster gps);
     void UpdateCommand(GPSMaster gps);
-    void DeleteCommand(int id);
+    void DeleteCommand(int id,bool flag);
     string GetGpsUId();
 
 

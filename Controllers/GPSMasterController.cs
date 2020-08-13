@@ -72,10 +72,10 @@ _repository.UpdateCommand(gpsModelRepo);
 _repository.SaveChanges();
   return  NoContent();
 }
-[HttpDelete("{Id}")]
-public ActionResult DeleteCommand(int id )
+[HttpDelete("{Id}/{flag}")]
+public ActionResult DeleteCommand(int id, bool flag )
 {
-_repository.DeleteCommand(id);
+_repository.DeleteCommand(id,flag);
 _repository.SaveChanges();
 return NoContent();
 }
